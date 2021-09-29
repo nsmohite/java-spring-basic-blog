@@ -1,5 +1,8 @@
 package com.pluralsight.blog.model;
 
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,4 +76,9 @@ public class Post {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @RequestMapping("/")
+    public String listPosts(ModelMap modelMap){
+        modelMap.put("title", "Blog Post 1");
+        return "home";}
 }
